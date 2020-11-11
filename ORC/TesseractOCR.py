@@ -6,6 +6,10 @@ import pytesseract as ocr
 '''
 def pytesseract(img):
     text = ocr.image_to_string(img)
-    # pdf = ocr.image_to_pdf_or_hocr(img, lang='por', extension='pdf')
-    # hocr = ocr.image_to_pdf_or_hocr(img, lang='por', extension='hocr')
+    text = text.replace("Lee [Ss", "")
+    text = text.replace("Atomoves Carinnies, Onbus ¢ Rebogues", "")
+    text = text.replace(" ", "")
+    text = text.replace(":", "")
+    text = text.strip()
+
     return text

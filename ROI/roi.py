@@ -13,7 +13,7 @@ cnts = cnts[0] if len(cnts) == 2 else cnts[1]
 ROI_number = 0
 for c in cnts:
     area = cv2.contourArea(c)
-    if area < 2500 and area > 400:
+    if area < 3000 and area > 1500:
         x,y,w,h = cv2.boundingRect(c)
         ROI = 255 - thresh[y:y+h, x:x+w]
         cv2.drawContours(mask, [c], -1, (255,255,255), -1)
